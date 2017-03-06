@@ -8,7 +8,22 @@
   \@justifytrue
 }
 
+\newif\if@tinos\@tinosfalse
+\DeclareOption{tinos}{
+  \@tinostrue
+}
+
 \ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Font
+
+\usepackage{fontspec}
+\if@tinos
+\setmainfont{Tinos}
+\else
+\setmainfont{Times New Roman}
+\fi
 
 % \usepackage{fullpage}
 \usepackage[letterpaper]{geometry}
