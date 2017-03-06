@@ -1,2 +1,4 @@
 *.aux
 .DS_Store
+
+/auto/
