@@ -1,5 +1,13 @@
 \ProvidesPackage{mla13}
-%\usepackage{fullpage}
+
+\newif\if@justify\@justifyfalse
+\DeclareOption{justify}{
+  \@justifytrue
+}
+
+\ProcessOptions\relax
+
+% \usepackage{fullpage}
 \usepackage[letterpaper]{geometry}
 %\usepackage[style=mla,backend=biber]{biblatex}
 %\usepackage{biblatex}
@@ -167,3 +175,12 @@ Works Cited
 \end{center}
 \printbibliography[heading=apa]
 \endgroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Justification
+
+\if@justify\else
+\usepackage{ragged2e}
+\setlength\RaggedRightParindent\parindent
+\RaggedRight
+\fi
