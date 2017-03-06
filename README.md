@@ -12,7 +12,7 @@ Here is a template:
     \lastname{Smith}
     \professor{Pedantic Professor}
     \class{MLA Writing 101}
-    \date{} % omit to use current date
+    \date{29 February 2400} % omit to use current date
 
     \title{About Essay-Writing}
 
