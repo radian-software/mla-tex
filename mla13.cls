@@ -1,4 +1,7 @@
-\ProvidesPackage{mla13}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{mla13}
+
+\LoadClass[12pt]{article}
 
 \newif\if@justify\@justifyfalse
 \DeclareOption{justify}{
