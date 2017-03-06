@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mla13}
+\ProvidesClass{mla}
 
 \LoadClass[12pt]{article}
 
