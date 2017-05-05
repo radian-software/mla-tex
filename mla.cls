@@ -128,6 +128,10 @@
   \noindent \@professor            \\
   \noindent \@class                \\
   \noindent \datef\@date
+  \maketitle
+  \endgroup}
+
+\renewcommand{\maketitle}{\begingroup
   \begin{tightcenter}
     \@title
   \end{tightcenter}
