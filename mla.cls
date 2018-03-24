@@ -22,6 +22,13 @@
   \@tinostrue
 }
 
+%% Option [workscitedsamepage]: do not place the Works Cited on a new
+%% page.
+\newif\if@workscitedclearpage\@workscitedclearpagetrue
+\DeclareOption{workscitedsamepage}{
+  \@workscitedclearpagefalse
+}
+
 \ProcessOptions\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,11 +53,11 @@
 
 %% Put the author's last name and the page number in the
 %% upper-right-hand corner.
-\rhead{\@lastname~\thepage}
+\rhead{\ifno{lastname}{\thepage}{\get{lastname}~\thepage}}
 
 %% Remove the horizontal rule that is usually displayed just below the
 %% page header.
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand*{\headrulewidth}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Font
@@ -86,8 +93,8 @@
 %% Make a new version of the {center} environment that doesn't add
 %% extra spacing.
 \newenvironment
-{tightcenter}
-{\parskip=0pt\par\nopagebreak\centering}
+{centered}
+{\parskip=0pt\par\par\nopagebreak\centering}
 {\par\noindent\ignorespacesafterend}
 
 %% Everyone loves double-spacing.
@@ -97,49 +104,94 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Header
 
-\def\@firstname{}
-\newcommand{\firstname}[1]{
-  \def\@firstname{#1}
+%% Mutable field management. The declaration \newfield{foo} will
+%% generate a command \foo{...} that can be used to set the value of
+%% field foo. You can then insert the value with \get{foo}, and unset
+%% it back to the default, which is the literal text \foo{?}, using
+%% \unset{foo}. There is also \ifno{foo}{A}{B}, which expands to A if
+%% foo is unset, and expands to B otherwise. If command \foo{...} is
+%% already defined, you can allow redefining it with \renewfield{foo}.
+\newcommand*{\newfield}[1]{%
+  \unset{#1}%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    \expandafter\def\csname value#1\endcsname{##1}}%
+}
+\newcommand*{\renewfield}[1]{%
+  \unset{#1}%
+  \expandafter\renewcommand\csname #1\endcsname[1]{%
+    \expandafter\def\csname value#1\endcsname{##1}}%
+}
+\newcommand*{\get}[1]{\csname value#1\endcsname}
+\newcommand{\ifno}[3]{%
+  \expandafter\ifdefempty\csname value#1\endcsname{#2}{#3}%
+}
+\newcommand*{\unset}[1]{%
+  \expandafter\def\csname value#1\endcsname{\textbackslash #1\{?\}}%
 }
 
-\def\@lastname{}
-\newcommand{\lastname}[1]{
-  \def\@lastname{#1}
+%% Fields used in header.
+\newfield{firstname}
+\newfield{lastname}
+\newfield{professor}
+\newfield{class}
+\renewfield{date}
+\renewfield{title}
+
+%% Default values.
+\date{\today}
+
+%% Make an MLA date format in order to handle the above default date
+%% value.
+\usepackage[calc]{datetime2}
+\DTMnewdatestyle{mladate}{%
+  \renewcommand{\DTMdisplaydate}[4]{##3 \DTMmonthname{##2} ##1}
+  \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}}
+\DTMsetdatestyle{mladate}
+
+%% Define a general command for inserting MLA-style headers.
+\newenvironment{header}{
+  \begingroup%
+  \rmfamily%
+  \fontsize{12}{2}%
+  \setlength{\parindent}{0pt}
+}{%
+  \endgroup%
 }
 
-\newcommand{\professor}[1]{
-  \def\@professor{#1}
+%% And a convenience function for the most common case.
+\newcommand*{\makeheader}{%
+  \begin{header}
+    \ifno{firstname}{
+      \ifno{lastname}{}{
+        \get{lastname} \par
+      }
+    }{
+      \ifno{lastname}{
+        \get{firstname} \par
+      }{
+        \get{firstname}~\get{lastname} \par
+      }
+    }
+    \ifno{professor}{}{
+      \get{professor} \par
+    }
+    \ifno{class}{}{
+      \get{class} \par
+    }
+    \ifno{date}{}{
+      \get{date} \par
+    }
+  \end{header}%
+  \begin{centered}
+    \get{title}
+  \end{centered}%
 }
 
-\newcommand{\class}[1]{
-  \def\@class{#1}
-}
-
-%% Make an MLA date format just in case we need to generate and
-%% typeset the current date (if \date{...} is not provided by the
-%% user).
-\usepackage{datetime}
-\newdateformat{datef}{\THEDAY~\monthname[\THEMONTH] \THEYEAR}
-
-\newcommand*{\makeheader}{\begingroup
-  \rmfamily
-  \fontsize{12}{2}
-  \noindent \@firstname~\@lastname \\
-  \noindent \@professor            \\
-  \noindent \@class                \\
-  \noindent \datef\@date
-  \begin{tightcenter}
-    \@title
-  \end{tightcenter}
-  \endgroup}
-
-\newcommand*{\makeworkscited}{\begingroup
-  \pagebreak
-  \begin{tightcenter}
-    Works Cited
-  \end{tightcenter}
-  \printbibliography[heading=apa]
-  \endgroup}
+\newcommand*{\makeworkscited}{%
+  \if@workscitedclearpage%
+  \pagebreak%
+  \fi%
+  \printbibliography}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Sectioning commands
@@ -190,12 +242,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Works cited
 
+%% Package doing all of our bibliography stuff.
 \usepackage[style=mla,mladraft=true,annotation=true]{biblatex}
-
-\newcommand{\sources}[1]{
-  \def\@sources{#1}
-  \bibliography{#1}
-}
 
 %% Bibliography commands
 \DeclareFieldFormat{ibidpostnote}{#1}%
@@ -244,7 +292,6 @@
 {\usebibmacro{citeindex}%
   \usebibmacro{cite:mla}}{}
 {\usebibmacro{postnote}}
-\defbibheading{apa}[\refname]{}
 
 %% Annotations for the bibliography
 \renewbibmacro{finentry}{% Renew the annotation macro
