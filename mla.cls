@@ -29,6 +29,13 @@
   \@workscitedclearpagefalse
 }
 
+%% Option [lowerrightpagenumbers]: put page numbers in the lower right
+%% rather than the upper right.
+\newif\if@lowerrightpagenumbers\@lowerrightpagenumbersfalse
+\DeclareOption{lowerrightpagenumbers}{
+  \@lowerrightpagenumberstrue
+}
+
 \ProcessOptions\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,7 +60,11 @@
 
 %% Put the author's last name and the page number in the
 %% upper-right-hand corner.
+\if@lowerrightpagenumbers
+\rfoot{\ifno{lastname}{\thepage}{\get{lastname}~\thepage}}
+\else
 \rhead{\ifno{lastname}{\thepage}{\get{lastname}~\thepage}}
+\fi
 
 %% Remove the horizontal rule that is usually displayed just below the
 %% page header.

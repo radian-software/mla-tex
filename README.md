@@ -53,6 +53,10 @@ providing the `[tinos]` documentclass option.
 You can prevent the Works Cited from being placed on a new page by
 providing the `[workscitedsamepage]` documentclass option.
 
+You can put page numbers in the lower-right corner rather than the
+upper-right corner by providing the `[lowerrightpagenumbers]`
+documentclass option.
+
 ## Advanced usage
 
 To cause a field to be omitted in the printed document, with not even
