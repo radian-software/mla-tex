@@ -253,6 +253,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Works cited
 
+%% Use American-style quotation marks.
+\usepackage[american]{babel}
+
 %% Package doing all of our bibliography stuff.
 \usepackage[style=mla,mladraft=true,annotation=true]{biblatex}
 
