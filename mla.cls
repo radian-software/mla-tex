@@ -109,7 +109,6 @@
 {\par\noindent\ignorespacesafterend}
 
 %% Everyone loves double-spacing.
-\usepackage{setspace}
 \linespread{2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
