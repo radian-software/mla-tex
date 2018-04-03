@@ -109,7 +109,8 @@
 {\par\noindent\ignorespacesafterend}
 
 %% Everyone loves double-spacing.
-\linespread{2}
+\usepackage{setspace}
+\setstretch{2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Header
