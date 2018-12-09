@@ -28,9 +28,9 @@ name, put in the preamble:
 
     \firstname{Joe}  % adjust name to taste
 
-Similarly for `\lastname`, `\class`, and `\title`. By default, the
-current date is used; you can substitute another one by specifying
-`\date`.
+Similarly for `\lastname`, `\professor`, `\class`, and `\title`. By
+default, the current date is used; you can substitute another one by
+specifying `\date`.
 
 ## Works cited
 
