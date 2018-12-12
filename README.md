@@ -66,6 +66,11 @@ To cause a field to be omitted in the printed document, with not even
 a placeholder, simply specify it as e.g. `\title{}` rather than
 `\title{<text>}`.
 
+To substitute the value of e.g. your last name which you passed to
+`\lastname`, use the expression `\get{lastname}`. This may be useful
+if you want to use a custom header, as below, but still need to set
+`\lastname` for the page number formatting.
+
 You can replace the default header format with one more to your liking
 by using the `header` and `centered` environments rather than the
 `\makeheader` command. For example:
