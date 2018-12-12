@@ -57,6 +57,9 @@ You can put page numbers in the lower-right corner rather than the
 upper-right corner by providing the `[lowerrightpagenumbers]`
 documentclass option.
 
+You can prevent the page number heading from being shown on the first
+page by providing the `[nofirstpagenumber]` option.
+
 ## Advanced usage
 
 To cause a field to be omitted in the printed document, with not even

@@ -36,6 +36,13 @@
   \@lowerrightpagenumberstrue
 }
 
+%% Option [nofirstpagenumber]: don't display a page number in the
+%% upper right corner.
+\newif\if@nofirstpagenumber\@nofirstpagenumberfalse
+\DeclareOption{nofirstpagenumber}{
+  \@nofirstpagenumbertrue
+}
+
 \ProcessOptions\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,6 +71,13 @@
 \rfoot{\ifno{lastname}{\thepage}{\get{lastname}~\thepage}}
 \else
 \rhead{\ifno{lastname}{\thepage}{\get{lastname}~\thepage}}
+\fi
+
+\if@nofirstpagenumber
+\fancypagestyle{blank}{
+  \fancyhf{}
+}
+\thispagestyle{blank}
 \fi
 
 %% Remove the horizontal rule that is usually displayed just below the
