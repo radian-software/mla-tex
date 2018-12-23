@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog].
 
+## 1.1 (released 2018-12-22)
+### Added
+* The new `[nofirstpagenumber]` option allows you to suppress page
+  numbering for the first page.
+* The `\get{...}` macro for retrieving information used in the header
+  is now considered public.
+
 ## 1.0 (released 2018-04-06)
 ### Added
 * Features:
