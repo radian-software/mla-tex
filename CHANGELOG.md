@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog].
 
 ## Unreleased
 ### Enhancements
-* Hyperlinks no longer highlighted by default, improving the
+* Hyperlinks are no longer highlighted by default, improving the
   aesthetics of typeset documents.
 
 ## 1.1 (released 2018-12-22)
