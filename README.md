@@ -69,7 +69,8 @@ a placeholder, simply specify it as e.g. `\title{}` rather than
 To substitute the value of e.g. your last name which you passed to
 `\lastname`, use the expression `\get{lastname}`. This may be useful
 if you want to use a custom header, as below, but still need to set
-`\lastname` for the page number formatting.
+`\lastname` for the page number formatting. To get the current date in
+MLA format, use `\today{}`.
 
 You can replace the default header format with one more to your liking
 by using the `header` and `centered` environments rather than the
