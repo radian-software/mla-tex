@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog].
 * Hyperlinks are no longer highlighted by default, improving the
   aesthetics of typeset documents.
 
+### Fixed
+* The first paragraph of each section is now indented, as per MLA
+  guidelines.
+
 ## 1.1 (released 2018-12-22)
 ### Added
 * The new `[nofirstpagenumber]` option allows you to suppress page

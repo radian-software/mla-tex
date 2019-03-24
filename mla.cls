@@ -115,6 +115,10 @@
 %% MLA requires exactly 0.5in paragraph indents.
 \setlength{\parindent}{0.5in}
 
+%% MLA also says that every paragraph should be indented, including
+%% the first paragraph of a section.
+\usepackage{indentfirst}
+
 %% Make a new version of the {center} environment that doesn't add
 %% extra spacing.
 \newenvironment
