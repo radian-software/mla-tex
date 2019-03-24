@@ -271,7 +271,7 @@
 \usepackage[american]{babel}
 
 %% Hyperlink bibliography entries.
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 %% Package doing all of our bibliography stuff.
 \usepackage[style=mla,mladraft=true,annotation=true]{biblatex}
