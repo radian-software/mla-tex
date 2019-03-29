@@ -223,6 +223,12 @@
   \printbibliography}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Enumeration
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\renewcommand{\labelenumii}{\Alph{enumii}.}
+\renewcommand{\labelenumiii}{\arabic{enumiii}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Sectioning commands
 
 \renewcommand   \thesection{\@arabic\c@section.}
