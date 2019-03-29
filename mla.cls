@@ -2,7 +2,7 @@
 %%%% Preamble
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mla}[2019/04/10 MLA v1.2]
+\ProvidesClass{mla}[2019/10/01 MLA v1.3]
 
 %% article uses 10pt by default.
 \LoadClass[12pt]{article}
@@ -222,6 +222,7 @@
   \fi%
   \printbibliography}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Sectioning commands
 
@@ -341,3 +342,10 @@
       \end{quotation}}%
     {}}%
 }
+
+\newenvironment{outline}
+{
+    \renewcommand{\labelenumi}{\Roman{enumi}.}
+    \renewcommand{\labelenumii}{\Alph{enumii}.}
+    \renewcommand{\labelenumiii}{\arabic{enumiii}.}
+}{}
