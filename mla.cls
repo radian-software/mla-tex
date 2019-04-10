@@ -284,7 +284,7 @@
 \usepackage[hidelinks]{hyperref}
 
 %% Package doing all of our bibliography stuff.
-\usepackage[style=mla,mladraft=true,annotation=true]{biblatex}
+\usepackage[style=mla-new,mladraft=true,annotation=true]{biblatex}
 
 %% Bibliography commands
 \DeclareFieldFormat{ibidpostnote}{#1}%
