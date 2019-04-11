@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog].
 
-## Unreleased
+## 1.2 (released 2019-04-10)
 ### Enhancements
 * Hyperlinks are no longer highlighted by default, improving the
   aesthetics of typeset documents.

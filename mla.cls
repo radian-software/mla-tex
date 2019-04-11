@@ -2,7 +2,7 @@
 %%%% Preamble
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mla}
+\ProvidesClass{mla}[2019/04/10 MLA v1.2]
 
 %% article uses 10pt by default.
 \LoadClass[12pt]{article}
