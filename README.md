@@ -60,6 +60,42 @@ documentclass option.
 You can prevent the page number heading from being shown on the first
 page by providing the `[nofirstpagenumber]` option.
 
+## Outline
+
+An bulleted outline can be created with the outline environment. The bulleting style follows the format documented [here](https://libguides.liberty.edu/c.php?g=564129&p=4781213). The outline supports an indent level of three.
+
+### Example
+```
+\documentclass{mla}
+
+% Header
+\firstname{First}
+\lastname{Last}
+\professor{Dr. Example}
+\class{EX 101}
+\title{Using mla-tex to create an outline}
+
+\begin{document}
+\makeheader
+Thesis: Lorem ipsum
+
+  \begin{outline}
+    \begin{enumerate}
+      \item Item 1
+      \item Item 2
+        \begin{enumerate}
+          \item Item 3
+          \item Item 4
+            \begin{enumerate}
+              \item Item 5
+              \item Item 6
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+  \end{outline}
+\end{document}
+```
+
 ## Advanced usage
 
 To cause a field to be omitted in the printed document, with not even
