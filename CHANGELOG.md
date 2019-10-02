@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog].
 
-## 1.3 (released 2019-10-1)
+## Unreleased
 ### Added
 * Outline environment `\begin{outline}`
 
