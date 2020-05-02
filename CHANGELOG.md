@@ -38,4 +38,4 @@ The format is based on [Keep a Changelog].
   * `workscitedsamepage`
   * `lowerrightpagenumbers`
 
-[keep a changelog]: [Keep a Changelog]: http://keepachangelog.com/
+[keep a changelog]: http://keepachangelog.com/
