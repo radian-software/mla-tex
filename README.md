@@ -131,6 +131,13 @@ by using the `header` and `centered` environments rather than the
       The title
     \end{centered}
 
+# Contributor guide
+
+When adding a new feature, you should document it in the README. Any
+user-visible change should also be noted in the changelog. I have some
+information on how to write a changelog in [the contributor guide for
+my projects](https://github.com/raxod502/contributor-guide).
+
 [mla]: https://owl.english.purdue.edu/owl/section/2/11/
 [tinos]: https://www.fontsquirrel.com/fonts/tinos
 [xetex]: http://xetex.sourceforge.net/
