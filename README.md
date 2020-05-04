@@ -18,7 +18,7 @@ Start with the following template:
 
     \end{document}
 
-Compile as you like. The following example shows compilatation with
+Compile as you like. The following example shows compilation with
 XeTeX but all 3 engines are supported.
 
     $ latexmk -pdfxe -interaction=nonstopmode <document>.tex
@@ -49,9 +49,10 @@ You can cause text to be justified rather than left-aligned by
 providing the `[justify]` documentclass option.
 
 You can use [Tinos] for the main font rather than Times New Roman by
-providing the `[tinos]` documentclass option. This options only matters
-if you are using an OpenType-aware engine; compilation with PDFTeX will
-always use the [New TX font].
+providing the `[tinos]` documentclass option. This option only has an
+effect if you are using an OpenType-aware engine such as [XeTeX]
+(recommended); compilation with PDFTeX will instead always use the
+[New TX font].
 
 You can prevent the Works Cited from being placed on a new page by
 providing the `[workscitedsamepage]` documentclass option.
@@ -134,7 +135,8 @@ by using the `header` and `centered` environments rather than the
       The title
     \end{centered}
 
-[mla]: https://owl.english.purdue.edu/owl/section/2/11/
-[tinos]: https://www.fontsquirrel.com/fonts/tinos
 [latex]: https://www.latex-project.org/
+[mla]: https://owl.english.purdue.edu/owl/section/2/11/
 [new tx font]: https://ctan.org/pkg/newtx
+[tinos]: https://www.fontsquirrel.com/fonts/tinos
+[xetex]: http://xetex.sourceforge.net/
