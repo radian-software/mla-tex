@@ -1,6 +1,6 @@
 # mla-tex
 
-Typeset your [MLA] papers in [XeTeX].
+Typeset your [MLA] papers in [LaTeX].
 
 ## Getting started
 
@@ -18,7 +18,8 @@ Start with the following template:
 
     \end{document}
 
-Compile as follows, or however you prefer to compile XeTeX:
+Compile as you like. The following example shows compilatation with
+XeTeX but all 3 engines are supported.
 
     $ latexmk -pdfxe -interaction=nonstopmode <document>.tex
 
@@ -48,7 +49,9 @@ You can cause text to be justified rather than left-aligned by
 providing the `[justify]` documentclass option.
 
 You can use [Tinos] for the main font rather than Times New Roman by
-providing the `[tinos]` documentclass option.
+providing the `[tinos]` documentclass option. This options only matters
+if you are using an OpenType-aware engine; compilation with PDFTeX will
+always use the [New TX font].
 
 You can prevent the Works Cited from being placed on a new page by
 providing the `[workscitedsamepage]` documentclass option.
@@ -140,4 +143,5 @@ my projects](https://github.com/raxod502/contributor-guide).
 
 [mla]: https://owl.english.purdue.edu/owl/section/2/11/
 [tinos]: https://www.fontsquirrel.com/fonts/tinos
-[xetex]: http://xetex.sourceforge.net/
+[latex]: https://www.latex-project.org/
+[new tx font]: https://ctan.org/pkg/newtx

@@ -6,6 +6,7 @@
 
 %% article uses 10pt by default.
 \LoadClass[12pt]{article}
+\RequirePackage{iftex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Options
@@ -88,11 +89,17 @@
 %%%% Font
 
 %% Set the appropriate font (Tinos or Times New Roman).
-\usepackage{fontspec}
-\if@tinos
-\setmainfont{Tinos}
+% Load New TX if not using OpenType-compatible engine
+\iftutex
+  \usepackage{fontspec}
+  \if@tinos
+  \setmainfont{Tinos}
+  \else
+  \setmainfont{Times New Roman}
+  \fi
 \else
-\setmainfont{Times New Roman}
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{newtxtext}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

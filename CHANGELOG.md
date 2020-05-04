@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog].
 ## Unreleased
 ### Added
 * Outline environment `\begin{outline}`
+* PDFTeX support
 
 ## 1.2 (released 2019-04-10)
 ### Enhancements
