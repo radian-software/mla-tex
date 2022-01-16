@@ -66,6 +66,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 
+% https://tex.stackexchange.com/q/528358
+\setlength\headheight{15pt}
+
 %% Put the author's last name and the page number in the
 %% upper-right-hand corner.
 \if@lowerrightpagenumbers
@@ -289,13 +292,13 @@
 
 %% Bibliography commands
 \DeclareFieldFormat{ibidpostnote}{#1}%
-\newbibmacro*{cite:idem}{%
+\renewbibmacro*{cite:idem}{%
   \ifsingletitle%
   {\iffieldundef{postnote}%
     {\usebibmacro{cite:name}}%
     {\unspace\global\boolfalse{cbx@named}}}%
   {\addspace\global\boolfalse{cbx@named}}}
-\newbibmacro*{cite:mla:title:internal}{% 0.7.1 new internal macro
+\renewbibmacro*{cite:mla:title:internal}{% 0.7.1 new internal macro
   \ifbool{cbx@named}%
   {\unspace\addcomma\addspace}%
   {}%
@@ -310,7 +313,7 @@
       {}}}%
   {\printtext[bibhyperref]{%
       \printfield[citetitle:\strfield{entrytype}]{labeltitle}}}}%
-\newbibmacro*{cite:mla:title}{% 0.7.1 tidied up
+\renewbibmacro*{cite:mla:title}{% 0.7.1 tidied up
   \unspace%
   \ifnameundef{labelname}%
   {\unspace%
